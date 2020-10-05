@@ -5,7 +5,7 @@ document.getElementById("sort-array").addEventListener("click", sortArray);
 document.getElementById("reverse-sort-array").addEventListener("click", reverseSortArray);
 document.getElementById("print-every-even-first").addEventListener("click", printEveryEvenElement);
 document.getElementById("print-first-last-elements").addEventListener("click", printFirstLastElements);
-document.getElementById("print-mod-three").addEventListener("click", printModThreeElements);
+document.getElementById("print-mod").addEventListener("click", printModElements);
 
 function getArray() {
     var strArray = arrayInput.value.trim();
@@ -16,6 +16,7 @@ function getArray() {
         }
         return array;
     }
+    return [];
 }
 
 function printArray(array) {
@@ -60,11 +61,12 @@ function printFirstLastElements() {
     printArray(newArray);
 }
 
-function printModThreeElements() {
+function printModElements() {
+    var mod = document.getElementById("mod").value - 0;
     var array = getArray();
     var newArray = [];
     for (var i = 0; i < array.length; i++) {
-        if (array[i] % 3 == 0)
+        if (array[i] % mod == 0)
             newArray.push(array[i]);
     }
     printArray(newArray);
