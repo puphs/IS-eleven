@@ -26,7 +26,6 @@ for (let i = 0; i < numberButtons.length; i++) {
     let btn = numberButtons[i];
     btn.addEventListener("click", function () {
         parseNumbers(btn.innerHTML);
-        console.log(strNumber1);
         printToResult(createMathExpression());
     });
 }
@@ -91,7 +90,7 @@ function processOperandString(str) {
 
         case "C":
             strNumber1 = "0";
-            strNumber2 = "0     ";
+            strNumber2 = "0";
             number1 = 0;
             number2 = 0;
             currentOperation = OPERATION_NONE;
@@ -138,7 +137,7 @@ function calculateResult() {
         break;
     }
     strNumber1 = result.toString();
-    strNumber2 = "";
+    strNumber2 = "0";
     number1 = result;
     number2 = 0;
     currentOperation = OPERATION_NONE;
