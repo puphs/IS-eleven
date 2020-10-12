@@ -1,3 +1,24 @@
 #result {
     text-align: end;
 }
+
+#container {
+    text-align: center;
+}
+#calculator {
+    margin-top: 32px;
+    display: inline-block;
+}
+
+input {
+    font-size: 18px;
+    margin: 4px;
+    margin-bottom: 8px;
+    width: 270px;
+}
+
+button {
+    margin: 4px;
+    width: 60px;
+    height: 60px;
+}
