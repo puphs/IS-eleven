@@ -8,6 +8,8 @@ const OPERATION_COS = 6;
 const OPERATION_SQUARE_ROOT = 7;
 const OPERATION_SQUARE_ROOT_OF_N = 8;
 const OPERATION_MODULE = 9;
+const OPERATION_BINARY = 10;
+const OPERATION_OCTONARY = 11;
 
 let resultInput = document.getElementById("result")
 let numberButtons = document.getElementsByClassName("number");
@@ -88,6 +90,16 @@ function processOperandString(str) {
             printToResult(calculateResult());
             return;
 
+        case "2bit":
+            currentOperation = OPERATION_BINARY;
+            printToResult(calculateResult());
+            return;
+
+        case "8bit":
+            currentOperation = OPERATION_OCTONARY;
+            printToResult(calculateResult());
+            return;
+
         case "C":
             strNumber1 = "0";
             strNumber2 = "0";
@@ -119,13 +131,15 @@ function calculateResult() {
             else
                 result /= number2;
             break;
+        
         case OPERATION_SIN:
             result = Math.sin(result);
             break;
         case OPERATION_COS:
             result = Math.cos(result);
             break;
-        case OPERATION_SQUARE_ROOT:
+        
+            case OPERATION_SQUARE_ROOT:
             result = Math.sqrt(result);
             break;
         case OPERATION_SQUARE_ROOT_OF_N:
@@ -134,7 +148,16 @@ function calculateResult() {
         
         case OPERATION_MODULE:
             result = Math.abs(result);
-        break;
+            break;
+
+        case OPERATION_BINARY:
+            result = convertToBinary(result);
+            break;
+        
+        case OPERATION_OCTONARY:
+            result = convertToOctonary(result);
+            break;
+        
     }
     strNumber1 = result.toString();
     strNumber2 = "0";
@@ -160,4 +183,13 @@ function createMathExpression() {
 
 function printToResult(n) {
     resultInput.value = n;
+}
+
+
+function convertToBinary(n) {
+    return (n >> 0).toString(2);
+}
+
+function convertToOctonary(n) {
+    return (n >> 0).toString(8);
 }
