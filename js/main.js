@@ -12,13 +12,16 @@ window.onload = function() {
         height: 600,
         WINDOW: WINDOW,
     });
-    
-    function drawFunction() {
+
+    let graphFunctions = [f, g];
+    let graphColors = ['red', 'blue', 'green', 'magenta', 'purple', 'brown']
+
+    function drawFunction(f, color = 'black', lineWidth = 2) {
         let x = WINDOW.LEFT;
         var dx = WINDOW.WIDTH / 1000;
     
         while (x <  WINDOW.LEFT + WINDOW.WIDTH) {
-            graph.line(x, f(x), x + dx, f(x + dx), "red", 5);
+            graph.line(x, f(x), x + dx, f(x + dx), color, lineWidth);
             x += dx;
         }
     }
@@ -58,7 +61,12 @@ window.onload = function() {
         drawGrid();
         drawOXY();
         drawSegments();
-        drawFunction();
+        for (let i = 0; i < graphFunctions.length; i++) {
+            let color = graphColors[Math.floor(Math.random() * graphColors.length)]; 
+            drawFunction(graphFunctions[i], color, 5);
+        }
+        //drawFunction(f, 'blue', 2);
+        //drawFunction(g, 'red', 2);
     }
 
     render();
@@ -66,4 +74,8 @@ window.onload = function() {
 
 function f(x) {
     return Math.cos(x);
+}
+
+function g(x) {
+    return Math.sin(x);
 }
