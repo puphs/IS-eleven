@@ -4,6 +4,7 @@ function Graph(options) {
     let width = options.width || 300;
     let height = options.height || 200;
     let WINDOW = options.WINDOW || {};
+    let callbacks = options.callbacks;
 
     let canvas;
     if (canvasId) {
@@ -15,13 +16,19 @@ function Graph(options) {
     canvas.width = width;
     canvas.height = height;
 
+    canvas.addEventListener('wheel', callbacks.wheel);
+    canvas.addEventListener('mouseup', callbacks.mouseup);
+    canvas.addEventListener('mousedown', callbacks.mousedown);
+    canvas.addEventListener('mousemove', callbacks.mousemove);
+    canvas.addEventListener('mouseleave', callbacks.mouseleave);
+
     let ctx = canvas.getContext('2d');
 
-    function xs(x) {
+    this.xs = function(x) {
         return (x - WINDOW.LEFT) / WINDOW.WIDTH * canvas.width; 
     }
 
-    function ys(y) {
+    this.ys = function(y) {
         return canvas.height - (y - WINDOW.BOTTOM) / WINDOW.HEIGHT * canvas.height; 
     }
 
@@ -35,15 +42,33 @@ function Graph(options) {
         ctx.beginPath();
         ctx.strokeStyle = color;
         ctx.lineWidth = width;
-        ctx.moveTo(xs(x1), ys(y1));
-        ctx.lineTo(xs(x2), ys(y2));
+        ctx.moveTo(this.xs(x1), this.ys(y1));
+        ctx.lineTo(this.xs(x2), this.ys(y2));
+        ctx.stroke();
+    }
+
+    this.point = function(x, y, color = 'black', radius = 2) {
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.arc(this.xs(x), this.ys(y), radius, 0, 2 * Math.PI);
         ctx.stroke();
     }
 
     this.text = function(x, y, text, color = 'black', fontSize = 8) {
         ctx.font = fontSize + 'px Arial';
+        ctx.textBaseline = 'middle'
+        ctx.textAlign = 'center';
         ctx.fillStyle = color;
-        ctx.fillText(text, xs(x), ys(y));
+        ctx.fillText(text, this.xs(x), this.ys(y));
+    }
+
+    this.sx = function(x) {
+        return x * WINDOW.WIDTH /
+        width;
+    }
+
+    this.sy = function(y) {
+        return -y * WINDOW.HEIGHT /height;
     }
 
 }
