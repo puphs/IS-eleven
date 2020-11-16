@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+}
+.graph-input {
+	display: flex;
+	flex-direction: column;
+}
+.graph-input__function {
+}
+.graph-input__line-width {
+}
+.graph-input__add-graph-btn {
+}

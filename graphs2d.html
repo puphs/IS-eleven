@@ -4,12 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Graphs 2D</title>
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js"></script>
     <script src="js/Graph.js"></script>
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+
+        <div class="graph-input">
+            <label>Graph function:
+                <input class="graph-input__function" type="text">
+            </label>
+            <label>Graph line width:
+                <input class="graph-input__line-width" type="text">
+            </label>
+            <label>Graph color:
+                <input class="graph-input__color" type="color">
+            </label>
+            <button class="graph-input__add-graph-btn">Add new graph</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
