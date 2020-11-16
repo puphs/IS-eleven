@@ -1,13 +1,50 @@
-.container {
-    display: flex;
+* {
+	font-family: "Open Sans", sans-serif;
 }
-.graph-input {
+
+.show-graph-input-btn {
+	margin-bottom: 10px;
+}
+
+.container {
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
+	position: relative;
 }
+
+.graph-input {
+	background-color: aquamarine;
+	padding: 10px;
+	border-radius: 4px;
+	position: absolute;
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+	z-index: 10;
+	top: 5px;
+	left: 5px;
+	opacity: 0.8;
+}
+
+.graph-input--hidden {
+	display: none;
+}
+
+.graph-input__option {
+	display: flex;
+	justify-content: space-between;
+}
+
+.graph-input__option {
+	margin-bottom: 12px;
+}
+
 .graph-input__function {
 }
+
 .graph-input__line-width {
 }
+
 .graph-input__add-graph-btn {
 }

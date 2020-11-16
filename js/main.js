@@ -27,26 +27,16 @@ window.onload = function () {
 		},
 	});
 
+	let ui = new UI({
+		callbacks: {
+			addGraph,
+		},
+	});
+
 	let graphs = [];
-	//let graphColors = ['red', 'blue', 'green', 'magenta', 'purple', 'brown'];
-	const graphFunctionInput = document.querySelector(".graph-input__function");
-	const graphLineWidthInput = document.querySelector(
-		".graph-input__line-width"
-	);
-	const graphColorInput = document.querySelector(".graph-input__color");
-	const graphAddButton = document.querySelector(
-		".graph-input__add-graph-btn"
-	);
 
-	graphAddButton.addEventListener("click", parseGraphData);
-
-	function parseGraphData() {
-		console.log(graphColorInput.value);
-		graphs.push({
-			function: graphFunctionInput.value,
-			lineWidth: parseFloat(graphLineWidthInput.value),
-			color: graphColorInput.value,
-		});
+	function addGraph(graphData) {
+		graphs.push(graphData);
 		render();
 	}
 
@@ -152,6 +142,8 @@ window.onload = function () {
 		graph.point(x, 0, "red", 1);
 	}
 
+	function drawFunctionIntersection(f, g) {}
+
 	function render() {
 		graph.clear();
 		drawGrid();
@@ -160,13 +152,7 @@ window.onload = function () {
 		//drawZero(f, 2, 4, 0.001);
 
 		graphs.forEach((graph) => {
-			drawFunction(
-				function (x) {
-					return eval(graph.function);
-				},
-				graph.color,
-				graph.lineWidth
-			);
+			drawFunction(graph.function, graph.color, graph.lineWidth);
 		});
 	}
 

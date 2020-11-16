@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <title>Graphs 2D</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/UI.js"></script>
     <script src="js/Graph.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
+    <button class="show-graph-input-btn">Show/hide graph panel</button>
     <div class="container">
         <canvas id="canvas"></canvas>
 
-        <div class="graph-input">
-            <label>Graph function:
+        <div class="graph-input graph-input--hidden">
+            <div class="graph-input__option">
+                <label>Graph function:</label>
                 <input class="graph-input__function" type="text">
-            </label>
-            <label>Graph line width:
+            </div>
+            <div class="graph-input__option">
+                <label>Graph line width:</label>
                 <input class="graph-input__line-width" type="text">
-            </label>
-            <label>Graph color:
+            </div>
+            <div class="graph-input__option">
+                <label>Graph color:</label>
                 <input class="graph-input__color" type="color">
-            </label>
+            </div>
             <button class="graph-input__add-graph-btn">Add new graph</button>
         </div>
     </div>
+
 
 </body>
 
