@@ -12,28 +12,35 @@
 </head>
 
 <body>
-    <button class="show-graph-input-btn">Show/hide graph panel</button>
+    <button class="show-graph-input-btn btn-base">Show/hide graph panel</button>
+    <div class="integral-range-container">
+        <span class="integral-label">Integral range:</span>
+        <input class="integral-range" type="text" id="a">
+        <input class="integral-range" type="text" id="b">
+    </div>
     <div class="container">
         <canvas id="canvas"></canvas>
 
         <div class="graph-input graph-input--hidden">
             <div class="graph-input__option">
-                <label>Graph function:</label>
-                <input class="graph-input__function" type="text">
+                <label for="graph-input__function">Graph function:</label>
+                <input id="graph-input__function" type="text">
             </div>
             <div class="graph-input__option">
-                <label>Graph line width:</label>
-                <input class="graph-input__line-width" type="text">
+                <label for="graph-input__line-width">Graph line width:</label>
+                <input id="graph-input__line-width" type="text">
             </div>
             <div class="graph-input__option">
-                <label>Graph color:</label>
-                <input class="graph-input__color" type="color">
+                <label for="graph-input__color">Graph color:</label>
+                <input id="graph-input__color" type="color">
             </div>
-            <button class="graph-input__add-graph-btn">Add new graph</button>
+            <button class="graph-input__add-graph-btn btn-base">Add new graph</button>
+        </div>
+
+        <div class="graphs-container">
+
         </div>
     </div>
-
-
 </body>
 
 </html>
