@@ -32,6 +32,7 @@ window.onload = function () {
 			setFunction,
 			setDerivative,
 			setIntegral,
+			removeFunction,
 		},
 	});
 
@@ -55,6 +56,15 @@ window.onload = function () {
 			functions[functionIndex].integral = value;
 			render();
 		}
+	}
+
+	function removeFunction(graphData) {
+		for (let i = 0; i < functions.length; i++) {
+			if (functions[i] == graphData) {
+				functions.splice(i, 1);
+			}
+		}
+		render();
 	}
 
 	function wheel(event) {

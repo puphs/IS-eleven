@@ -66,11 +66,15 @@ function UI(options) {
 				<label class="graph__label graph__row-item" for="integral${functionIndex}">Integral:</label>
 				<input class="graph__integral graph__row-item" id="integral${functionIndex}" type="checkbox"></input>
 			</div>
+			<div class="graph__row">
+				<button class="graph__remove-btn btn-base">Remove function</div>
+			</div>
 		`;
 		graphBlock.innerHTML = blockInner;
 
 		const derivative = graphBlock.querySelector('.graph__derivative');
 		const integral = graphBlock.querySelector('.graph__integral');
+		const removeBtn = graphBlock.querySelector('.graph__remove-btn');
 
 		derivative.setAttribute('id', `derivative${functionIndex}`);
 		derivative.dataset.functionIndex = functionIndex;
@@ -82,6 +86,11 @@ function UI(options) {
 		integral.dataset.functionIndex = functionIndex;
 		integral.addEventListener('change', function () {
 			callbacks.setIntegral(this.checked, integral.dataset.functionIndex);
+		});
+
+		removeBtn.addEventListener('click', () => {
+			callbacks.removeFunction(graphData);
+			graphBlock.remove();
 		});
 
 		graphsContainer.append(graphBlock);
