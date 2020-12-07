@@ -55,7 +55,7 @@ function UI(options) {
 
 		const blockInner = `
 			<div class="graph__row">
-				<label class="graph__label graph__row-item">Function ${functionIndex + 1}:</label>
+				<label class="graph__label graph__row-item">Function #${functionIndex + 1}:</label>
 				<div class="graph__function graph__row-item">${graphFunctionInput.value}</div>
 			</div>
 			<div class="graph__row">

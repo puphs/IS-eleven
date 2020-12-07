@@ -184,7 +184,7 @@ window.onload = function () {
 		if (der) {
 			const x1 = WINDOW.LEFT - x0;
 			const x2 = WINDOW.LEFT + WINDOW.WIDTH - x0;
-			graph.line(x1 + x0, der * x1 + f(x0), x2 + x0, der * x2 + f(x0), 'red', 2);
+			graph.line(x1 + x0, der * x1 + f(x0), x2 + x0, der * x2 + f(x0), 'red', 2, true);
 			graph.point(x0, f(x0), 'red', 3);
 		}
 	}
